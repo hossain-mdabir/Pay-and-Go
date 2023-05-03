@@ -14,12 +14,20 @@ struct PaymentView: View {
     
     @State var date: Date
     
+    // Text Input Fields
     @State private var  accNumber: String = ""
     @State private var  accName: String = ""
     @State private var  paymentAmount: String = ""
     @State private var  narration: String = ""
     
-    @State private var isSubmit: Bool = true
+    // Toast message
+    @State var isToast: Bool = false
+    @State var  msg: String = ""
+    
+    // Dsmiss keyboard
+    @FocusState private var isFocused: Bool
+    
+    @State private var isSubmit: Bool = false
     
     // MARK: - BODY
     
@@ -35,15 +43,31 @@ struct PaymentView: View {
                     
                     // Inut fields
                     CustomTextFieldView(title: paymentData.accNumber, themeColor: paymentData.backgroundColor, text: $accNumber)
+                        .focused($isFocused)
                     CustomTextFieldView(title: paymentData.accName, themeColor: paymentData.backgroundColor, text: $accName)
+                        .focused($isFocused)
                     CustomTextFieldView(title: paymentData.paymentAmount, themeColor: paymentData.backgroundColor, text: $paymentAmount)
+                        .focused($isFocused)
                     CustomTextFieldView(title: paymentData.narration, themeColor: paymentData.backgroundColor, text: $narration)
+                        .focused($isFocused)
                 }
                 .padding(.horizontal, 15)
                 
                 Button {
-                    withAnimation(.easeOut(duration: 1)) {
-                        isSubmit = true
+                    isFocused = false
+                    if accNumber.isEmpty {
+                        isToast = true
+                        msg = "Please enter \(paymentData.type) account number"
+                    } else if accName.isEmpty {
+                        isToast = true
+                        msg = "Please enter \(paymentData.type) account name"
+                    } else if paymentAmount.isEmpty {
+                        isToast = true
+                        msg = "Please enter \(paymentData.type) amount"
+                    } else {
+                        withAnimation(.easeOut(duration: 1)) {
+                            isSubmit = true
+                        }
                     }
                 } label: {
                     Text("Submit")
@@ -66,7 +90,7 @@ struct PaymentView: View {
         }
         .navigationTitle("Payment")
         .navigationBarTitleDisplayMode(.inline)
-        
+        .toastAlertView(isToast: $isToast, msg: $msg, themeColor: paymentData.backgroundColor)
     }
     
     @ViewBuilder
@@ -157,7 +181,7 @@ struct PaymentView: View {
                         Text("Amount")
                             .font(.system(size: 14))
                         Spacer()
-                        Text("BDT \(paymentAmount)")
+                        Text("BDT \(Double(paymentAmount) ?? 0.00)")
                             .font(.system(size: 14))
                     }
                     .foregroundColor(Color.gray)
@@ -214,7 +238,7 @@ struct PaymentView: View {
                         Text("Total")
                             .font(.system(size: 14))
                         Spacer()
-                        Text(paymentAmount)
+                        Text("\(Double(paymentAmount) ?? 0.00)")
                             .font(.system(size: 14))
                     }
                     .foregroundColor(Color.gray)
