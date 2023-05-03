@@ -16,13 +16,16 @@ struct DashboardView: View {
     
     var body: some View {
         VStack {
+            // Payment Services Button
             ForEach(0 ..< paymentServiceProviderData.count, id: \.self) { type in
-                NavigationLink(destination: PaymentView(paymentData: paymentServiceProviderData[type])) {
+                NavigationLink(destination: PaymentView(paymentData: paymentServiceProviderData[type], date: Date())) {
                     Text(paymentServiceProviderData[type].type)
                         .navButtonDesign(backgroundColor: paymentServiceProviderData[type].backgroundColor) // Reusable
                 }
             }
         }
+        .navigationTitle("Dashboard")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

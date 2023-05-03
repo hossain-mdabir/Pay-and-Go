@@ -19,6 +19,7 @@ struct CustomTextFieldView: View {
     var body: some View {
         VStack {
             ZStack(alignment: .leading) {
+                // Field Title
                 Text("\(title)")
                     .padding(.leading, 10)
                     .font(.system(size: 18))
@@ -29,7 +30,7 @@ struct CustomTextFieldView: View {
                 
                 
                 HStack {
-                    // Reusable
+                    // Text
                     TextField("", text: $text)
                         .padding(.leading, 10)
                         .accentColor(.blue)
