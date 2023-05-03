@@ -23,6 +23,8 @@ Features:
 
 3. TextField validation is added and also custom reusable toast message is added. You will see toast message if you try to leave Account number or Account Name field or Amount field empty when tapping on submit button. And the toast message them is also based on the selected payment method from 'Dashboard'.
 
-4.PopUp or dialogue design is added
+4. Input field data wise keyboard added.
+
+5.PopUp or dialogue design is added
 
 Most of the Design and work is done. Only download pdf are not completed. Hope I manage the time to complete next day.
