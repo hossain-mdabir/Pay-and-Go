@@ -16,6 +16,7 @@
 		10CB3ACF2A02B5060006A680 /* PaymentServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB3ACE2A02B5060006A680 /* PaymentServiceProvider.swift */; };
 		10CB3AD12A02B54D0006A680 /* PaymentServiceProviderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB3AD02A02B54D0006A680 /* PaymentServiceProviderData.swift */; };
 		10CB3AD42A02C19A0006A680 /* NavButtonDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB3AD32A02C19A0006A680 /* NavButtonDesign.swift */; };
+		10CB3AD62A02CD110006A680 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB3AD52A02CD110006A680 /* CustomTextFieldView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		10CB3ACE2A02B5060006A680 /* PaymentServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentServiceProvider.swift; sourceTree = "<group>"; };
 		10CB3AD02A02B54D0006A680 /* PaymentServiceProviderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentServiceProviderData.swift; sourceTree = "<group>"; };
 		10CB3AD32A02C19A0006A680 /* NavButtonDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonDesign.swift; sourceTree = "<group>"; };
+		10CB3AD52A02CD110006A680 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				10CB3ACC2A02B3830006A680 /* PaymentView.swift */,
+				10CB3AD52A02CD110006A680 /* CustomTextFieldView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				10CB3ABB2A02B22D0006A680 /* ContentView.swift in Sources */,
 				10CB3ACF2A02B5060006A680 /* PaymentServiceProvider.swift in Sources */,
 				10CB3ACD2A02B3830006A680 /* PaymentView.swift in Sources */,
+				10CB3AD62A02CD110006A680 /* CustomTextFieldView.swift in Sources */,
 				10CB3AD42A02C19A0006A680 /* NavButtonDesign.swift in Sources */,
 				10CB3AC82A02B26B0006A680 /* DashboardView.swift in Sources */,
 				10CB3AD12A02B54D0006A680 /* PaymentServiceProviderData.swift in Sources */,
@@ -335,6 +339,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -364,6 +369,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

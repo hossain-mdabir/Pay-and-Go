@@ -8,4 +8,4 @@
 import Foundation
 import SwiftUI
 
-let paymentServiceProviderData: [PaymentServiceProvider] = [PaymentServiceProvider(id: 1, type: "Bkash", accNumber: "Bkash Account", accName: "Bkash Name", paymentAmount: "Amount", narration: "Narration", backgroundColor: "BkashBackground"), PaymentServiceProvider(id: 2, type: "Nagad", accNumber: "Nagad Account", accName: "Nagad Name", paymentAmount: "Amount", narration: "Narration", backgroundColor: "NagadBackground")]
+let paymentServiceProviderData: [PaymentServiceProvider] = [PaymentServiceProvider(id: 1, type: "Bkash", imgName: "bkash_money_send_icon", accNumber: "Bkash Account", accName: "Bkash Name", paymentAmount: "Amount", narration: "Narration", backgroundColor: "BkashBackground"), PaymentServiceProvider(id: 2, type: "Nagad", imgName: "ic_nagad", accNumber: "Nagad Account", accName: "Nagad Name", paymentAmount: "Amount", narration: "Narration", backgroundColor: "NagadBackground")]

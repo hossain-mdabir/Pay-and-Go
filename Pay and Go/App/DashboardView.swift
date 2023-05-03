@@ -18,9 +18,8 @@ struct DashboardView: View {
         VStack {
             ForEach(0 ..< paymentServiceProviderData.count, id: \.self) { type in
                 NavigationLink(destination: PaymentView(paymentData: paymentServiceProviderData[type])) {
-                    
                     Text(paymentServiceProviderData[type].type)
-                        .navButtonDesign(backgroundColor: paymentServiceProviderData[type].backgroundColor)
+                        .navButtonDesign(backgroundColor: paymentServiceProviderData[type].backgroundColor) // Reusable
                 }
             }
         }
