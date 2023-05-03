@@ -27,10 +27,6 @@ struct ToastAlertView: ViewModifier {
                 VStack {
                     Spacer()
                     HStack {
-                        Image("thp_logo")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                        
                         Text(message)
                             .font(.footnote)
                     }
@@ -38,6 +34,7 @@ struct ToastAlertView: ViewModifier {
                     .padding()
                     .foregroundColor(Color.primary)
                     .background(Color(themeColor).opacity(0.5))
+                    .cornerRadius(3)
                     .shadow(color: .gray, radius: 2, x: 0, y: 3)
                 }
                 .padding(.bottom, 80)

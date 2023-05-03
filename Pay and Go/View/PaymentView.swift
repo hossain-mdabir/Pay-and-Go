@@ -43,10 +43,12 @@ struct PaymentView: View {
                     
                     // Inut fields
                     CustomTextFieldView(title: paymentData.accNumber, themeColor: paymentData.backgroundColor, text: $accNumber)
+                        .keyboardType(.numberPad)
                         .focused($isFocused)
                     CustomTextFieldView(title: paymentData.accName, themeColor: paymentData.backgroundColor, text: $accName)
                         .focused($isFocused)
                     CustomTextFieldView(title: paymentData.paymentAmount, themeColor: paymentData.backgroundColor, text: $paymentAmount)
+                        .keyboardType(.decimalPad)
                         .focused($isFocused)
                     CustomTextFieldView(title: paymentData.narration, themeColor: paymentData.backgroundColor, text: $narration)
                         .focused($isFocused)
@@ -181,7 +183,7 @@ struct PaymentView: View {
                         Text("Amount")
                             .font(.system(size: 14))
                         Spacer()
-                        Text("BDT \(Double(paymentAmount) ?? 0.00)")
+                        Text("BDT \(Double(paymentAmount) ?? 0.00, specifier: "%.2f")")
                             .font(.system(size: 14))
                     }
                     .foregroundColor(Color.gray)
@@ -238,7 +240,7 @@ struct PaymentView: View {
                         Text("Total")
                             .font(.system(size: 14))
                         Spacer()
-                        Text("\(Double(paymentAmount) ?? 0.00)")
+                        Text("\(Double(paymentAmount) ?? 0.00, specifier: "%.2f")")
                             .font(.system(size: 14))
                     }
                     .foregroundColor(Color.gray)
