@@ -11,7 +11,10 @@ import SwiftUI
 struct Pay_and_GoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ContentView()
+            }
+            .navigationViewStyle(.stack)
         }
     }
 }
