@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10BCCABB2A03F5D300039C38 /* ReverseGeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BCCABA2A03F5D300039C38 /* ReverseGeoLocation.swift */; };
+		10BCCABD2A03F86B00039C38 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BCCABC2A03F86B00039C38 /* LocationModel.swift */; };
+		10BCCABF2A04074D00039C38 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BCCABE2A04074D00039C38 /* LocationManager.swift */; };
 		10CB3AB92A02B22D0006A680 /* Pay_and_GoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB3AB82A02B22D0006A680 /* Pay_and_GoApp.swift */; };
 		10CB3ABB2A02B22D0006A680 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB3ABA2A02B22D0006A680 /* ContentView.swift */; };
 		10CB3ABD2A02B22D0006A680 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10CB3ABC2A02B22D0006A680 /* Assets.xcassets */; };
@@ -15,12 +18,16 @@
 		10CB3ACD2A02B3830006A680 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB3ACC2A02B3830006A680 /* PaymentView.swift */; };
 		10CB3ACF2A02B5060006A680 /* PaymentServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB3ACE2A02B5060006A680 /* PaymentServiceProvider.swift */; };
 		10CB3AD12A02B54D0006A680 /* PaymentServiceProviderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB3AD02A02B54D0006A680 /* PaymentServiceProviderData.swift */; };
-		10CB3AD42A02C19A0006A680 /* NavButtonDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB3AD32A02C19A0006A680 /* NavButtonDesign.swift */; };
+		10CB3AD42A02C19A0006A680 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB3AD32A02C19A0006A680 /* Extension.swift */; };
 		10CB3AD62A02CD110006A680 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB3AD52A02CD110006A680 /* CustomTextFieldView.swift */; };
 		10CB3AD92A0311D10006A680 /* ToastAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB3AD82A0311D10006A680 /* ToastAlertView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10BCCABA2A03F5D300039C38 /* ReverseGeoLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseGeoLocation.swift; sourceTree = "<group>"; };
+		10BCCABC2A03F86B00039C38 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		10BCCABE2A04074D00039C38 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		10BCCAC02A04082100039C38 /* Pay-and-Go-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Pay-and-Go-Info.plist"; sourceTree = SOURCE_ROOT; };
 		10CB3AB52A02B22D0006A680 /* Pay and Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pay and Go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10CB3AB82A02B22D0006A680 /* Pay_and_GoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pay_and_GoApp.swift; sourceTree = "<group>"; };
 		10CB3ABA2A02B22D0006A680 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -30,7 +37,7 @@
 		10CB3ACC2A02B3830006A680 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		10CB3ACE2A02B5060006A680 /* PaymentServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentServiceProvider.swift; sourceTree = "<group>"; };
 		10CB3AD02A02B54D0006A680 /* PaymentServiceProviderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentServiceProviderData.swift; sourceTree = "<group>"; };
-		10CB3AD32A02C19A0006A680 /* NavButtonDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonDesign.swift; sourceTree = "<group>"; };
+		10CB3AD32A02C19A0006A680 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		10CB3AD52A02CD110006A680 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		10CB3AD82A0311D10006A680 /* ToastAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastAlertView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -46,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10BCCAB92A03F59B00039C38 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				10BCCABA2A03F5D300039C38 /* ReverseGeoLocation.swift */,
+				10BCCABE2A04074D00039C38 /* LocationManager.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		10CB3AAC2A02B22D0006A680 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +81,8 @@
 		10CB3AB72A02B22D0006A680 /* Pay and Go */ = {
 			isa = PBXGroup;
 			children = (
+				10BCCAC02A04082100039C38 /* Pay-and-Go-Info.plist */,
+				10BCCAB92A03F59B00039C38 /* Location */,
 				10CB3AC62A02B2570006A680 /* App */,
 				10CB3AC92A02B27D0006A680 /* View */,
 				10CB3ACA2A02B28D0006A680 /* Model */,
@@ -108,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				10CB3ACE2A02B5060006A680 /* PaymentServiceProvider.swift */,
+				10BCCABC2A03F86B00039C38 /* LocationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -123,7 +142,7 @@
 		10CB3AD22A02BC680006A680 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				10CB3AD32A02C19A0006A680 /* NavButtonDesign.swift */,
+				10CB3AD32A02C19A0006A680 /* Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -211,10 +230,13 @@
 				10CB3ACD2A02B3830006A680 /* PaymentView.swift in Sources */,
 				10CB3AD62A02CD110006A680 /* CustomTextFieldView.swift in Sources */,
 				10CB3AD92A0311D10006A680 /* ToastAlertView.swift in Sources */,
-				10CB3AD42A02C19A0006A680 /* NavButtonDesign.swift in Sources */,
+				10BCCABD2A03F86B00039C38 /* LocationModel.swift in Sources */,
+				10CB3AD42A02C19A0006A680 /* Extension.swift in Sources */,
 				10CB3AC82A02B26B0006A680 /* DashboardView.swift in Sources */,
+				10BCCABF2A04074D00039C38 /* LocationManager.swift in Sources */,
 				10CB3AD12A02B54D0006A680 /* PaymentServiceProviderData.swift in Sources */,
 				10CB3AB92A02B22D0006A680 /* Pay_and_GoApp.swift in Sources */,
+				10BCCABB2A03F5D300039C38 /* ReverseGeoLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +368,9 @@
 				DEVELOPMENT_TEAM = 767JC457LD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Pay-and-Go-Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location access to get user transaction location.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location access to get user transaction location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -376,6 +401,9 @@
 				DEVELOPMENT_TEAM = 767JC457LD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Pay-and-Go-Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location access to get user transaction location.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location access to get user transaction location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

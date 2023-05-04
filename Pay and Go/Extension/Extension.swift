@@ -1,5 +1,5 @@
 //
-//  NavButtonDesign.swift
+//  Extension.swift
 //  Pay and Go
 //
 //  Created by Md Abir Hossain on 03-05-2023.
@@ -18,5 +18,18 @@ extension View {
             .foregroundColor(Color.white)
             .background(Color(backgroundColor))
             .cornerRadius(5)
+    }
+    
+    func convertToScrollView<Content: View> (@ViewBuilder content: @escaping () -> Content) -> UIScrollView {
+        
+        let scrollView = UIScrollView()
+        
+        let hostingController = UIHostingController(rootView: content()).view!
+        
+        let constraints = [
+            
+        ]
+        
+        return scrollView
     }
 }

@@ -20,6 +20,10 @@ struct PaymentView: View {
     @State private var  paymentAmount: String = ""
     @State private var  narration: String = ""
     
+    // User Location
+    @StateObject var locationManager = LocationManager()
+    @StateObject var location = Location()
+    
     // Toast message
     @State var isToast: Bool = false
     @State var  msg: String = ""
@@ -235,6 +239,16 @@ struct PaymentView: View {
                             .font(.system(size: 14))
                     }
                     .foregroundColor(Color.gray)
+                    
+                    HStack {
+                        Text("User Location")
+                            .font(.system(size: 14))
+                        Spacer()
+                        Text(location.userLocationString)
+                            .font(.system(size: 12))
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .foregroundColor(Color.gray)
                     Divider()
                     HStack {
                         Text("Total")
@@ -264,7 +278,7 @@ struct PaymentView: View {
                 
             } label: {
                 HStack(spacing: 30) {
-                    Text("DODNLOAD RECEIPT")
+                    Text("DOWNLOAD RECEIPT")
                         .font(.system(size: 12, weight: .semibold))
                         .foregroundColor(Color.gray.opacity(0.5))
                     
@@ -285,6 +299,14 @@ struct PaymentView: View {
         .padding(30)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
+        .onAppear {
+            location.reverseGeoLocation(pdblLatitude: "\(locationManager.lastLocation?.coordinate.latitude ?? 0)", withLongitude: "\(locationManager.lastLocation?.coordinate.longitude ?? 0)")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                //call any function
+                print("Location ---- \(location.userLocationString)")
+            }
+        }
     }
 }
 
