@@ -36,17 +36,6 @@ class Location: ObservableObject {
             
             if location.count > 0 {
                 let pm = placemarks![0]
-                print("name : \(pm.name)")
-                print("thoroughfare : \(pm.thoroughfare)")
-                print("subThoroughfare : \(pm.subThoroughfare)")
-                print("postalCode : \(pm.postalCode)")
-                print("subLocality : \(pm.subLocality)")
-                print("locality : \(pm.locality)")
-                print("administrativeArea : \(pm.administrativeArea)")
-                print("subAdministrativeArea : \(pm.subAdministrativeArea)")
-                print("areasOfInterest : \(pm.areasOfInterest)")
-                print("country : \(pm.country)")
-                
                 self.userLocation.address = pm  // Need to check in future--Added in CIBL Test--
                 
                 self.userLocation.name = pm.name

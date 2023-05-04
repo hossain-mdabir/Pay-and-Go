@@ -27,4 +27,6 @@ Features:
 
 5.PopUp or dialogue design is added
 
+6. User Location and Payment receipt download and share feature added (No image in pdf bug not fixed yet).
+
 Most of the Design and work is done. Only download pdf are not completed. Hope I manage the time to complete next day.

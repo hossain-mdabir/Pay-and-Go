@@ -9,11 +9,40 @@ import Foundation
 import CoreLocation
 
 
+//class LocationManager: NSObject, ObservableObject {
+//
+//    private let locationManager = CLLocationManager()
+//    @Published var location: CLLocation? = nil
+//
+//    override init() {
+//        super.init()
+//        locationManager.delegate = self
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locationManager.requestWhenInUseAuthorization()
+//        locationManager.startUpdatingLocation()
+//    }
+//}
+//
+//extension LocationManager: CLLocationManagerDelegate {
+//
+//    func locationManager(_ manager: CLLocationManager, didupdateLocations locations: [CLLocation]) {
+//        guard let location = locations.last else {
+//            return
+//        }
+//
+//        self.location = location
+//    }
+//}
+
+
+
+
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
     private let locationManager = CLLocationManager()
     @Published var locationStatus: CLAuthorizationStatus?
     @Published var lastLocation: CLLocation?
+
 
     override init() {
         super.init()
@@ -21,18 +50,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        //        locationManager.distanceFilter = 1.0 // 1.0 meters
-
-        //        if CLLocationManager.locationServicesEnabled() {
-        //            locationManager.startUpdatingLocation()
-        //            locationManager.allowsBackgroundLocationUpdates = true
         locationManager.pausesLocationUpdatesAutomatically = false
-        //            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        //        locationManager.kCLDistanceFilterNone.distance(to: 1.0) ////////
-        locationManager.distanceFilter = 1.0  //      020.0 meters
-                                              //        }
+        locationManager.distanceFilter = 1.0
     }
-
 
 
     var statusString: String {
@@ -62,6 +82,5 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         guard let location = locations.last else { return }
         self.lastLocation = location
         print(#function, location)
-
     }
 }

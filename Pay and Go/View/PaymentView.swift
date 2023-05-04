@@ -28,6 +28,10 @@ struct PaymentView: View {
     @State var isToast: Bool = false
     @State var  msg: String = ""
     
+    // PDF Properties
+    @State var PDFUrl: URL?
+    @State var isShareSheet: Bool = false
+    
     // Dsmiss keyboard
     @FocusState private var isFocused: Bool
     
@@ -97,6 +101,14 @@ struct PaymentView: View {
         .navigationTitle("Payment")
         .navigationBarTitleDisplayMode(.inline)
         .toastAlertView(isToast: $isToast, msg: $msg, themeColor: paymentData.backgroundColor)
+        .sheet(isPresented: $isShareSheet) {
+            PDFUrl = nil
+        } content: {
+            if let PDFUrl = PDFUrl {
+                ShareSheet(urls: [PDFUrl])
+            }
+        }
+
     }
     
     @ViewBuilder
@@ -274,7 +286,22 @@ struct PaymentView: View {
             .padding(.vertical, 20)
             Spacer()
             
+            // Share pdf button
             Button {
+               
+                exportPDF {
+                    self
+                    
+                } completion: { status, url  in
+                    if let url = url, status {
+                        self.PDFUrl = url
+                        self.isShareSheet.toggle()
+                        print(url)
+                    } else {
+                        print("Failed to produce pdf")
+                    }
+                }
+
                 
             } label: {
                 HStack(spacing: 30) {
@@ -304,6 +331,7 @@ struct PaymentView: View {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 //call any function
+                print("Lot ---- \(locationManager.lastLocation?.coordinate.latitude ?? 0)---Long ---- \(locationManager.lastLocation?.coordinate.longitude ?? 0)")
                 print("Location ---- \(location.userLocationString)")
             }
         }
@@ -315,5 +343,19 @@ struct PaymentView: View {
 struct PaymentView_Previews: PreviewProvider {
     static var previews: some View {
         PaymentView(paymentData: PaymentServiceProvider(id: 1, type: "Bkash", imgName: "bkash_money_send_icon", accNumber: "Nagad Account", accName: "Nagad Name", paymentAmount: "Amount", narration: "Narration", backgroundColor: "BkashBackground"), date: Date())
+    }
+}
+// MARK: - Screen to pdf
+struct ShareSheet: UIViewControllerRepresentable {
+    var urls: [Any]
+    
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        let controller = UIActivityViewController(activityItems: urls, applicationActivities: nil)
+        
+        return controller
+    }
+    
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
+        
     }
 }
