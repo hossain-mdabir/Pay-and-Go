@@ -38,6 +38,31 @@ struct DashboardView_Previews: PreviewProvider {
 }
 
 
+struct DemoView: View {
+    // MARK: - PROPERTIES
+    
+    let somView: any View
+    
+    
+    // MARK: - BODY
+    
+    var body: some View {
+        VStack {
+//            somView
+        }
+        .navigationTitle("Some")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+// MARK: - PREVIEW
+
+//struct DemoView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DemoView(somView: View())
+//    }
+//}
+
 
 //// MARK: - PROPERTIES
 //

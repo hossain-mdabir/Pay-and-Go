@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 struct PaymentView: View {
     // MARK: - PROPERTIES
     
@@ -92,6 +93,7 @@ struct PaymentView: View {
             if isSubmit {
                 Color.gray
                     .opacity(0.5)
+//                DemoView(somView: submitPopUp())
                 submitPopUp()
                     .cornerRadius(20)
                     .padding(.horizontal,20)
@@ -113,6 +115,7 @@ struct PaymentView: View {
     
     @ViewBuilder
     func submitPopUp() -> some View {
+//    var submitPopUp: some View {
         VStack(spacing: 0) {
             HStack  {
                 Spacer()
@@ -287,28 +290,12 @@ struct PaymentView: View {
             Spacer()
             
             // Share pdf button
-            Button {
-               
-                exportPDF {
-                    self
-                    
-                } completion: { status, url  in
-                    if let url = url, status {
-                        self.PDFUrl = url
-                        self.isShareSheet.toggle()
-                        print(url)
-                    } else {
-                        print("Failed to produce pdf")
-                    }
-                }
-
-                
-            } label: {
+            ShareLink(item: render())  {
                 HStack(spacing: 30) {
                     Text("DOWNLOAD RECEIPT")
                         .font(.system(size: 12, weight: .semibold))
                         .foregroundColor(Color.gray.opacity(0.5))
-                    
+
                     VStack {
                         Image("icon-download")
                             .resizable()
@@ -322,6 +309,42 @@ struct PaymentView: View {
                 .cornerRadius(30)
             }
             .padding(.horizontal, 40)
+            
+            
+//            Button {
+//
+//                exportPDF {
+//                    self
+//
+//                } completion: { status, url  in
+//                    if let url = url, status {
+//                        self.PDFUrl = url
+//                        self.isShareSheet.toggle()
+//                        print(url)
+//                    } else {
+//                        print("Failed to produce pdf")
+//                    }
+//                }
+//
+//            } label: {
+//                HStack(spacing: 30) {
+//                    Text("DOWNLOAD RECEIPT")
+//                        .font(.system(size: 12, weight: .semibold))
+//                        .foregroundColor(Color.gray.opacity(0.5))
+//
+//                    VStack {
+//                        Image("icon-download")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(width: 20, height: 20)
+//                            .opacity(0.3)
+//                    }
+//                }
+//                .frame(maxWidth: .infinity, maxHeight: 50)
+//                .background(Color.gray.opacity(0.1))
+//                .cornerRadius(30)
+//            }
+//            .padding(.horizontal, 40)
         }
         .padding(30)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -336,6 +359,38 @@ struct PaymentView: View {
             }
         }
     }
+    
+    func render() -> URL {
+        // 1: Render Hello World with some modifiers
+        let renderer = ImageRenderer(content: DashboardView())
+        
+        // 2: Save it to our documents directory
+        let url = URL.documentsDirectory.appending(path: "PAY.pdf")
+        
+        // 3: Start the rendering process
+        renderer.render { size, context in
+            // 4: Tell SwiftUI our PDF should be the same size as the views we're rendering
+            var box = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+            
+            // 5: Create the CGContext for our PDF pages
+            guard let pdf = CGContext(url as CFURL, mediaBox: &box, nil) else {
+                return
+            }
+            
+            // 6: Start a new PDF page
+            pdf.beginPDFPage(nil)
+            
+            // 7: Render the SwiftUI view data onto the page
+            context(pdf)
+            
+            // 8: End the page and close the file
+            pdf.endPDFPage()
+            pdf.closePDF()
+        }
+        
+        return url
+    }
+    
 }
 
 // MARK: - PREVIEW
@@ -358,4 +413,31 @@ struct ShareSheet: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
         
     }
+}
+
+
+@MainActor
+private func exportPDF(someView: some View) {
+    guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+    
+    let renderedUrl = documentDirectory.appending(path: "linechart.pdf")
+    
+    if let consumer = CGDataConsumer(url: renderedUrl as CFURL),
+       let pdfContext = CGContext(consumer: consumer, mediaBox: nil, nil) {
+        
+        let renderer = ImageRenderer(content: someView)
+        renderer.render { size, renderer in
+            let options: [CFString: Any] = [
+                kCGPDFContextMediaBox: CGRect(origin: .zero, size: size)
+            ]
+            
+            pdfContext.beginPDFPage(options as CFDictionary)
+            
+            renderer(pdfContext)
+            pdfContext.endPDFPage()
+            pdfContext.closePDF()
+        }
+    }
+    
+    print("Saving PDF to \(renderedUrl.path())")
 }

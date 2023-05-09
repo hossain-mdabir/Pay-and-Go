@@ -21,6 +21,7 @@
 		10CB3AD42A02C19A0006A680 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB3AD32A02C19A0006A680 /* Extension.swift */; };
 		10CB3AD62A02CD110006A680 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB3AD52A02CD110006A680 /* CustomTextFieldView.swift */; };
 		10CB3AD92A0311D10006A680 /* ToastAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB3AD82A0311D10006A680 /* ToastAlertView.swift */; };
+		10DD76B62A0A88F400F08FA8 /* PdfExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DD76B52A0A88F400F08FA8 /* PdfExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		10CB3AD32A02C19A0006A680 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		10CB3AD52A02CD110006A680 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		10CB3AD82A0311D10006A680 /* ToastAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastAlertView.swift; sourceTree = "<group>"; };
+		10DD76B52A0A88F400F08FA8 /* PdfExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				10CB3AD32A02C19A0006A680 /* Extension.swift */,
+				10DD76B52A0A88F400F08FA8 /* PdfExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				10CB3AC82A02B26B0006A680 /* DashboardView.swift in Sources */,
 				10BCCABF2A04074D00039C38 /* LocationManager.swift in Sources */,
 				10CB3AD12A02B54D0006A680 /* PaymentServiceProviderData.swift in Sources */,
+				10DD76B62A0A88F400F08FA8 /* PdfExtension.swift in Sources */,
 				10CB3AB92A02B22D0006A680 /* Pay_and_GoApp.swift in Sources */,
 				10BCCABB2A03F5D300039C38 /* ReverseGeoLocation.swift in Sources */,
 			);
@@ -369,6 +373,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Pay-and-Go-Info.plist";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location access to get user transaction location.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location access to get user transaction location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -402,6 +407,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Pay-and-Go-Info.plist";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location access to get user transaction location.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location access to get user transaction location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
